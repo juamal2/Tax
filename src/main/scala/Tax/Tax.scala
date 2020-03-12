@@ -3,6 +3,9 @@ package Tax
 class Tax {
 
   val taxBrackets = scala.collection.mutable.Map[Tuple2[Int, Int], Double]()
+  taxBrackets(Tuple2(10000, 30000)) = 0.1
+  taxBrackets(Tuple2(30000, 100000)) = 0.25
+  taxBrackets(Tuple2(100000, -1)) = 0.4
 
   def totalTax(income: Int): Int = {
     var result: Double = 0.0
